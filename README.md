@@ -5,8 +5,11 @@
 Source for the Data: HEALTHCARE PROVIDER FRAUD DETECTION ANALYSIS | Kaggle
 
 The raw data comprises of the Inpatient, outpatient and the beneficiary details of Health Insurance Providers covering various aspects as below:
+  
   a)	Inpatient Data: Claims filed, admission & discharge dates and admit & diagnosis code
+  
   b)	Outpatient Data: Claims filed for those patients who visit hospitals and not admitted in it
+  
   c)	Beneficiary Details: KYC details like health conditions, region they belong etc
 
 

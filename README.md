@@ -1,34 +1,44 @@
-# Healthcare-Provider-Fraud-detection
+**Overview of the case study **
 
-**Summary:**
-
-Source for the Data: HEALTHCARE PROVIDER FRAUD DETECTION ANALYSIS | Kaggle
-
-The raw data comprises of the Inpatient, outpatient and the beneficiary details of Health Insurance Providers covering various aspects as below:
-  
-  a)	Inpatient Data: Claims filed, admission & discharge dates and admit & diagnosis code
-  
-  b)	Outpatient Data: Claims filed for those patients who visit hospitals and not admitted in it
-  
-  c)	Beneficiary Details: KYC details like health conditions, region they belong etc
+Healthcare programs, in the United States (U.S.), have experienced tremendous growth in patient populations and commensurate costs and Fraud is a major contributor to these inflating healthcare expenses. The impact of healthcare fraud is estimated to be between 3% to 10% of the nation’s total healthcare spending continuing to adversely impact the Medicare program and its beneficiaries. 
+Many healthcare providers settle huge amounts for patients. But some insured individuals or the provider of health services attempt to make fake claims by giving false claim details such as showing fake bills, submitting same bills repeatedly, undergoing many treatments that were actually not necessary for a particular disease diagnosed, and so on.. which is considered a medical crime.
+The dataset that has been provided to us consists of 3 different csv files that has the Inpatient, Outpatient and the Beneficiary data. Each of the healthcare providers are identified by a unique ID and this ID is a part of the outpatient and the Inpatient datasets which also carry the beneficiary ID. 
+The primary objective is a binary classification task of each of the provider as either a Fraud or a Non-Fraud. The dataset consists of the fraud label data for a total of 5410 providers and the labels for these providers are provided in a separate file titled “Train.csv”. Since the data is related to fraud, the dataset is imbalanced as the number of providers, who commit a fraud is very small proportion when compared to the overall dataset.
+Taking the class imbalance into consideration, we will pick an evaluation metric which is robust to handle the minority and the majority classes equally.  Considering Fraud as a negative class and the Non-Fraud as the positive class, the focus should be on reducing the number of False Positives even at the cost of a minor increase in the False Negatives as most of the insurers have matured BPO process in place to carry out an investigation.
 
 
-**Objective of the Activity:**
 
-The objective is to predict the potentially fraudulent providers based on the claims filed by each of the providers.
 
-**Procedure:**
 
-Currently the project is a Work In Progress. Although the process covered so far is as below:
 
-  1.	Landscape of the Data Provided: 4 CSV files are provided and the shape of the dataset is as below:
-        Shape of Train Beneficiary file Data: (138556, 25)
-        Shape of Train In-patient file Data: (40474, 30)
-        Shape of Train Out-patient file Data: (517737, 27)
-        Shape of Train file Data: (5410, 2) 
-  
-  2.	The class distribution of the Dependent variable, which in our case is the Potential Fraud is Unbalanced with 90% of the claims being non-fraudulent whereas a 10% of the           cases being fraudulent 
-  
-  3.	Employed various Imputing techniques to impute missing values in various columns of each of the 3 data files: Beneficiary. Inpatient and outpatient data
-  
-  4.	Performed Univariate Analysis of different columns to look at the PDF and CDFs respectively
+
+
+
+**Research and Papers being referred to:**
+
+**Paper 1:** https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjE06e3tP7wAhUID2MBHdL1DH4QFjAAegQICxAD&url=https%3A%2F%2Fwww.aaai.org%2Focs%2Findex.php%2FFLAIRS%2FFLAIRS18%2Fpaper%2Fdownload%2F17617%2F16814&usg=AOvVaw2FyoQRNVI-j_xmGqktZHr_
+
+**Summary of Paper 1: **
+
+The objective of the paper is to come up with a Machine Learning model to detect fraud in the claims for medical providers (only publicly available claims data has been used). Random under sampling, (all fraud labels were retained and non-fraud labels are randomly reduced), was used in order to mitigate the effects of class imbalance. Due to a large size of the dataset the authors have preferred the under-sampling approach to the oversampling approach.
+A total of 4 different class distribution datasets have been used where random sampling has been used to select the Majority class observations while keeping the whole of minority class data samples intact. The distribution of the Majority and the minority class for the four distributions has been as follows: 50:50, 65:35, 75:25, 80:20.
+Decision trees, support vector machines and logistic regression have been used for the classification task due their popularity and no other concrete reason. Instances labelled Fraud are considered as the positive class whereas the non-fraud instances are considered to be the negative class. AUC, FPR and FNR are the evaluation metrics that were used as AUC is a popular measure of a binary classifier for datasets with severe class imbalance.  
+
+**Paper 2:** Medicare Fraud Detection Using Machine Learning Methods | IEEE Conference Publication | IEEE Xplore
+**Summary of Paper 2:**
+
+This paper compares the performance of several machine learning models to detect fraud. The performance of Unsupervised, Supervised and other hybrid machine learning approaches has been evaluated. 
+The dataset that has been used in this paper is very similar to Paper 1 and both Over sampling and 80:20 under-sampling methods have been used to deal with Class imbalance. Gradient Boosting Machines, Random Forests and Naïve Bayes have been used under the supervised learning techniques. Mahalanobis, K nearest neighbours and Local Outlier Factor techniques have been used under the unsupervised learning techniques as a part of the anomaly detection activity wherein the outliers are treated as the fraud cases. The specific reasons behind the selection of each of these techniques has not been mentioned in the paper. 
+Four performance or evaluation parameters have been used to compare the performance of the models – F1 score, G measure [Sqrt(precision*recall)], Mathew’s Correlated Co-efficient (MCC takes into account all the values in the confusion matrix) and Balanced Accuracy (BACC, takes into account both TPR and TNR).
+The paper concludes that a better performance was achieved with 80-20 sampling method with supervised methods when compared to unsupervised and hybrid methods. 
+
+**Paper 3:** https://paarthasaarathi.medium.com/healthcare-provider-fraud-detection-using-machine-learning-4ad9acbe
+
+**Summary of Paper 3**
+
+The article describes various machine learning models used in detecting fraud claim in the healthcare insurance. The dataset for the problem has been taken from Kaggle and the data consists of outpatient data, inpatient data and the beneficiary data.
+An in-depth Univariate and Bivariate analysis of the data was performed and other feature engineering such as counting the number of times a patient had made a claim, number of days a patient was admitted etc… The data also contains a few features which are categorical in nature and one hot encoding was employed to convert them into numerical features. 
+As a part of the pre-processing steps, all the columns including both Numerical and Categorical were checked for the NA values. The columns with missing values or NA values were imputed with 0 in scenario 1 and with mode in scenario 2. Post pre-processing and the feature engineering steps all the columns were normalised using the Min-max normalization technique.
+The data was split into Train and Test datasets in an 80:20 ratio and machine learning algorithms such as Logistic Regression, Decision Tree, Random Forests and XG Boost were used on scenario 1 and scenario 2. A custom ensemble model was used as a part of scenario 3 in order to train the data.
+
+

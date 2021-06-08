@@ -32,13 +32,5 @@ The dataset that has been used in this paper is very similar to Paper 1 and both
 Four performance or evaluation parameters have been used to compare the performance of the models – F1 score, G measure [Sqrt(precision*recall)], Mathew’s Correlated Co-efficient (MCC takes into account all the values in the confusion matrix) and Balanced Accuracy (BACC, takes into account both TPR and TNR).
 The paper concludes that a better performance was achieved with 80-20 sampling method with supervised methods when compared to unsupervised and hybrid methods. 
 
-**Paper 3:** https://paarthasaarathi.medium.com/healthcare-provider-fraud-detection-using-machine-learning-4ad9acbe
-
-**Summary of Paper 3**
-
-The article describes various machine learning models used in detecting fraud claim in the healthcare insurance. The dataset for the problem has been taken from Kaggle and the data consists of outpatient data, inpatient data and the beneficiary data.
-An in-depth Univariate and Bivariate analysis of the data was performed and other feature engineering such as counting the number of times a patient had made a claim, number of days a patient was admitted etc… The data also contains a few features which are categorical in nature and one hot encoding was employed to convert them into numerical features. 
-As a part of the pre-processing steps, all the columns including both Numerical and Categorical were checked for the NA values. The columns with missing values or NA values were imputed with 0 in scenario 1 and with mode in scenario 2. Post pre-processing and the feature engineering steps all the columns were normalised using the Min-max normalization technique.
-The data was split into Train and Test datasets in an 80:20 ratio and machine learning algorithms such as Logistic Regression, Decision Tree, Random Forests and XG Boost were used on scenario 1 and scenario 2. A custom ensemble model was used as a part of scenario 3 in order to train the data.
 
 

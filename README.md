@@ -1,12 +1,15 @@
 **Background to the Case Study:** 
+
 Healthcare programs, in the United States (U.S.), have experienced tremendous growth in patient populations and commensurate costs and Fraud is a major contributor to these inflating healthcare expenses. 
 
 Many healthcare providers settle huge amounts for patients. But some insured individuals or the provider of health services attempt to make fake claims by giving false claim details such as showing fake bills, submitting same bills repeatedly etc.
 
 **Business Objective**
+
 The primary objective is a binary classification task of each of the provider as either a Fraud or a Non-Fraud.Since the data is related to fraud, the dataset is imbalanced as the number of providers, who commit a fraud is very small proportion when compared to the overall dataset.
 
 **Evaluation Metric**
+
 I will be considering the No Fraud cases a Positive class and the Fraud cases as a Negative class. Considering the problem statement and the class imbalance in the dataset, I intend to explore the following parameters: 
   1.Precision and Recall: Since we are dealing with a fraud identification problem with a class imbalance, metrics such as Accuracy do not precisely evaluate the models. Hence,     I will be going for an evaluation metric such as Precision and Recall. 
   2.AUC score: As it gives an overall view of the classification performance of each of the models

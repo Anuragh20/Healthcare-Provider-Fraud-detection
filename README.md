@@ -1,17 +1,16 @@
-**Overview of the case study **
+**Background to the Case Study:** 
+Healthcare programs, in the United States (U.S.), have experienced tremendous growth in patient populations and commensurate costs and Fraud is a major contributor to these inflating healthcare expenses. 
 
-Healthcare programs, in the United States (U.S.), have experienced tremendous growth in patient populations and commensurate costs and Fraud is a major contributor to these inflating healthcare expenses. The impact of healthcare fraud is estimated to be between 3% to 10% of the nation’s total healthcare spending continuing to adversely impact the Medicare program and its beneficiaries. 
-Many healthcare providers settle huge amounts for patients. But some insured individuals or the provider of health services attempt to make fake claims by giving false claim details such as showing fake bills, submitting same bills repeatedly, undergoing many treatments that were actually not necessary for a particular disease diagnosed, and so on.. which is considered a medical crime.
-The dataset that has been provided to us consists of 3 different csv files that has the Inpatient, Outpatient and the Beneficiary data. Each of the healthcare providers are identified by a unique ID and this ID is a part of the outpatient and the Inpatient datasets which also carry the beneficiary ID. 
-The primary objective is a binary classification task of each of the provider as either a Fraud or a Non-Fraud. The dataset consists of the fraud label data for a total of 5410 providers and the labels for these providers are provided in a separate file titled “Train.csv”. Since the data is related to fraud, the dataset is imbalanced as the number of providers, who commit a fraud is very small proportion when compared to the overall dataset.
-Taking the class imbalance into consideration, we will pick an evaluation metric which is robust to handle the minority and the majority classes equally.  Considering Fraud as a negative class and the Non-Fraud as the positive class, the focus should be on reducing the number of False Positives even at the cost of a minor increase in the False Negatives as most of the insurers have matured BPO process in place to carry out an investigation.
+Many healthcare providers settle huge amounts for patients. But some insured individuals or the provider of health services attempt to make fake claims by giving false claim details such as showing fake bills, submitting same bills repeatedly etc.
 
+**Business Objective**
+The primary objective is a binary classification task of each of the provider as either a Fraud or a Non-Fraud.Since the data is related to fraud, the dataset is imbalanced as the number of providers, who commit a fraud is very small proportion when compared to the overall dataset.
 
-
-
-
-
-
+**Evaluation Metric**
+I will be considering the No Fraud cases a Positive class and the Fraud cases as a Negative class. Considering the problem statement and the class imbalance in the dataset, I intend to explore the following parameters: 
+  1.Precision and Recall: Since we are dealing with a fraud identification problem with a class imbalance, metrics such as Accuracy do not precisely evaluate the models. Hence,     I will be going for an evaluation metric such as Precision and Recall. 
+  2.AUC score: As it gives an overall view of the classification performance of each of the models
+  3.F1 score or Macro F1 score (due to class imbalances): In this case both precision and recall are particularly important as we need to cover as many fraud cases as possible       at the same time we need to able to predict the fraud cases very precisely as False Positives can be very costly.
 
 
 **Research and Papers being referred to:**
